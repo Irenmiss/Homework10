@@ -7,9 +7,9 @@ public class Main {
         System.out.println(yearForCheck + " - " + determineLeapYear(yearForCheck));
 
         System.out.println("Задание 2");
-        int currentYear = LocalDate.now().getYear();
-        int clientOS = 1;
-        System.out.println(determineDateOfOSVersion(currentYear) + " для " + determineOSVersion(clientOS));
+        int deviceReleaseData = 2020;
+        int clientOS = 0;
+        findCorrectOSVersionForClient(clientOS, deviceReleaseData);
 
         System.out.println("Задание 3");
         int deliveryDistance = 101;
@@ -24,7 +24,6 @@ public class Main {
         }
         return "не високосный год";
     }
-
     public static String determineOSVersion(int clientOS) {
         if (clientOS == 0) {
             return "iOS";
@@ -34,11 +33,19 @@ public class Main {
         return "не удалось определить операционную систему";
     }
 
-    public static String determineDateOfOSVersion(int currentYear) {
-        if (currentYear > 2015) {
-            return "Установите версию приложения";
-        } else
+    public static String determineDateOfOSVersion(int deviceReleaseData) {
+        if (deviceReleaseData < LocalDate.now().getYear()) {
             return "Установите облегченную версию приложения";
+        } else
+            return "Установите версию приложения";
+    }
+
+    public static void findCorrectOSVersionForClient (int clientOS, int deviceReleaseData) {
+        if (clientOS != 0 || clientOS != 0) {
+            System.out.println ("У нас нет подходящей версии приложения для вашей операционной системы.");
+        } else {
+            System.out.println(determineDateOfOSVersion(deviceReleaseData) + " для " + determineOSVersion(clientOS));
+        }
     }
 
     public static int calculateDeliveryDays(int deliveryDistance) {
