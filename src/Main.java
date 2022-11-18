@@ -24,6 +24,7 @@ public class Main {
         }
         return "не високосный год";
     }
+
     public static String determineOSVersion(int clientOS) {
         if (clientOS == 0) {
             return "iOS";
@@ -40,9 +41,9 @@ public class Main {
             return "Установите версию приложения";
     }
 
-    public static void findCorrectOSVersionForClient (int clientOS, int deviceReleaseData) {
+    public static void findCorrectOSVersionForClient(int clientOS, int deviceReleaseData) {
         if (clientOS != 0 || clientOS != 0) {
-            System.out.println ("У нас нет подходящей версии приложения для вашей операционной системы.");
+            System.out.println("У нас нет подходящей версии приложения для вашей операционной системы.");
         } else {
             System.out.println(determineDateOfOSVersion(deviceReleaseData) + " для " + determineOSVersion(clientOS));
         }
